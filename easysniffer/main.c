@@ -3,7 +3,7 @@
 Author: Will(Wang Lulin).
 Produce: 命令行可以指定抓包个数，如果该个数为0，则不停的抓包直到意外。如果不指定，则默认为5包。
 */
-#include "easysniffer.h"
+#include "easysniffer.c"
 #include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
