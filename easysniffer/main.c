@@ -1,8 +1,4 @@
-/*
-抓包模块的测设程序     Jan 23, 2010.
-Author: Will(Wang Lulin).
-Produce: 命令行可以指定抓包个数，如果该个数为0，则不停的抓包直到意外。如果不指定，则默认为5包。
-*/
+
 #include "easysniffer.c"
 #include <unistd.h>
 #include <stdlib.h>
@@ -19,9 +15,7 @@ int
 main(int argc, char **argv) {
 	int dgram_no = 5;	/* 抓多少包，默认5包 */
 	size_t dgram_size = 0x400;	/* 包的大小， 默认1kb */
-/*
- * 处理命令行参数
- */	
+
 	int optc;
 	while((optc = getopt(argc, argv, ":n:s:")) != -1) {
 		switch (optc) {
