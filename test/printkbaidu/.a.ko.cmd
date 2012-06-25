@@ -1,0 +1,1 @@
+cmd_/home/administrator/test/printkbaidu/a.ko := ld -r -m elf_i386 -T /usr/src/linux-headers-2.6.38-13-generic/scripts/module-common.lds --build-id  -o /home/administrator/test/printkbaidu/a.ko /home/administrator/test/printkbaidu/a.o /home/administrator/test/printkbaidu/a.mod.o
