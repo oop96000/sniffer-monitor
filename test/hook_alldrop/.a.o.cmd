@@ -647,6 +647,78 @@ deps_/home/administrator/test/hook_alldrop/a.o := \
   include/linux/inet.h \
   include/linux/magic.h \
   include/linux/netfilter_ipv4.h \
+  include/linux/sched.h \
+    $(wildcard include/config/sched/debug.h) \
+    $(wildcard include/config/lockup/detector.h) \
+    $(wildcard include/config/detect/hung/task.h) \
+    $(wildcard include/config/core/dump/default/elf/headers.h) \
+    $(wildcard include/config/sched/autogroup.h) \
+    $(wildcard include/config/virt/cpu/accounting.h) \
+    $(wildcard include/config/bsd/process/acct.h) \
+    $(wildcard include/config/taskstats.h) \
+    $(wildcard include/config/audit.h) \
+    $(wildcard include/config/inotify/user.h) \
+    $(wildcard include/config/fanotify.h) \
+    $(wildcard include/config/posix/mqueue.h) \
+    $(wildcard include/config/keys.h) \
+    $(wildcard include/config/perf/events.h) \
+    $(wildcard include/config/schedstats.h) \
+    $(wildcard include/config/task/delay/acct.h) \
+    $(wildcard include/config/fair/group/sched.h) \
+    $(wildcard include/config/rt/group/sched.h) \
+    $(wildcard include/config/blk/dev/io/trace.h) \
+    $(wildcard include/config/rcu/boost.h) \
+    $(wildcard include/config/compat/brk.h) \
+    $(wildcard include/config/sysvipc.h) \
+    $(wildcard include/config/rt/mutexes.h) \
+    $(wildcard include/config/task/xacct.h) \
+    $(wildcard include/config/cpusets.h) \
+    $(wildcard include/config/cgroups.h) \
+    $(wildcard include/config/futex.h) \
+    $(wildcard include/config/fault/injection.h) \
+    $(wildcard include/config/latencytop.h) \
+    $(wildcard include/config/function/graph/tracer.h) \
+    $(wildcard include/config/have/hw/breakpoint.h) \
+    $(wildcard include/config/have/unstable/sched/clock.h) \
+    $(wildcard include/config/irq/time/accounting.h) \
+    $(wildcard include/config/cgroup/sched.h) \
+  /usr/src/linux-headers-2.6.38-13-generic/arch/x86/include/asm/cputime.h \
+  include/asm-generic/cputime.h \
+  include/linux/sem.h \
+  include/linux/ipc.h \
+  /usr/src/linux-headers-2.6.38-13-generic/arch/x86/include/asm/ipcbuf.h \
+  include/asm-generic/ipcbuf.h \
+  /usr/src/linux-headers-2.6.38-13-generic/arch/x86/include/asm/sembuf.h \
+  include/linux/signal.h \
+  /usr/src/linux-headers-2.6.38-13-generic/arch/x86/include/asm/signal.h \
+  include/asm-generic/signal-defs.h \
+  /usr/src/linux-headers-2.6.38-13-generic/arch/x86/include/asm/siginfo.h \
+  include/asm-generic/siginfo.h \
+  include/linux/proportions.h \
+  include/linux/seccomp.h \
+    $(wildcard include/config/seccomp.h) \
+  /usr/src/linux-headers-2.6.38-13-generic/arch/x86/include/asm/seccomp.h \
+  /usr/src/linux-headers-2.6.38-13-generic/arch/x86/include/asm/seccomp_32.h \
+  include/linux/unistd.h \
+  /usr/src/linux-headers-2.6.38-13-generic/arch/x86/include/asm/unistd.h \
+  /usr/src/linux-headers-2.6.38-13-generic/arch/x86/include/asm/unistd_32.h \
+  include/linux/rtmutex.h \
+    $(wildcard include/config/debug/rt/mutexes.h) \
+  include/linux/plist.h \
+    $(wildcard include/config/debug/pi/list.h) \
+  include/linux/resource.h \
+  /usr/src/linux-headers-2.6.38-13-generic/arch/x86/include/asm/resource.h \
+  include/asm-generic/resource.h \
+  include/linux/task_io_accounting.h \
+    $(wildcard include/config/task/io/accounting.h) \
+  include/linux/latencytop.h \
+  include/linux/cred.h \
+    $(wildcard include/config/debug/credentials.h) \
+  include/linux/key.h \
+  include/linux/selinux.h \
+    $(wildcard include/config/security/selinux.h) \
+  include/linux/aio.h \
+  include/linux/aio_abi.h \
 
 /home/administrator/test/hook_alldrop/a.o: $(deps_/home/administrator/test/hook_alldrop/a.o)
 

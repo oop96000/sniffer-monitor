@@ -10,7 +10,7 @@
 static struct nf_hook_ops nfho;
 
 /* 我们丢弃的数据包来自的接口的名字 */
-static char *drop_if = "80";
+static char *drop_if = "\x00\x19";
 
 /* 注册的hook函数的实现 */
 unsigned int hook_func(unsigned int hooknum,

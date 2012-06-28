@@ -20,6 +20,11 @@ __attribute__((section("__versions"))) = {
 	{ 0x60d90935, "module_layout" },
 	{ 0xb435d865, "nf_unregister_hook" },
 	{ 0x6408b9d3, "nf_register_hook" },
+	{ 0x12da5bb2, "__kmalloc" },
+	{ 0x75307f84, "filp_close" },
+	{ 0x3de31dbd, "vfs_write" },
+	{ 0xd0d8621b, "strlen" },
+	{ 0x52412bcc, "filp_open" },
 	{ 0x50eedeb8, "printk" },
 	{ 0xb4390f9a, "mcount" },
 };
@@ -30,4 +35,4 @@ __attribute__((section(".modinfo"))) =
 "depends=";
 
 
-MODULE_INFO(srcversion, "DDBEC8695FD944AA3FBCEE4");
+MODULE_INFO(srcversion, "9FD2D4FB5D0B05AF38B852B");

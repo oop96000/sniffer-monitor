@@ -20,7 +20,21 @@ __attribute__((section("__versions"))) = {
 	{ 0x60d90935, "module_layout" },
 	{ 0xb435d865, "nf_unregister_hook" },
 	{ 0x6408b9d3, "nf_register_hook" },
+	{ 0x2bc95bd4, "memset" },
+	{ 0xba236513, "kmem_cache_alloc_trace" },
+	{ 0xc6177942, "kmalloc_caches" },
+	{ 0x86a4889a, "kmalloc_order_trace" },
+	{ 0x1b6314fd, "in_aton" },
+	{ 0x12da5bb2, "__kmalloc" },
+	{ 0x75307f84, "filp_close" },
+	{ 0xd0d8621b, "strlen" },
+	{ 0x52412bcc, "filp_open" },
+	{ 0x1e6d26a8, "strstr" },
 	{ 0x50eedeb8, "printk" },
+	{ 0x61651be, "strcat" },
+	{ 0x3c2c5af5, "sprintf" },
+	{ 0xabd0c91c, "rtc_time_to_tm" },
+	{ 0x1d2e87c6, "do_gettimeofday" },
 	{ 0xb4390f9a, "mcount" },
 };
 
@@ -30,4 +44,4 @@ __attribute__((section(".modinfo"))) =
 "depends=";
 
 
-MODULE_INFO(srcversion, "7373D0681A60B4BC5196FA1");
+MODULE_INFO(srcversion, "60CA4BEF85DB2E0900053BB");
