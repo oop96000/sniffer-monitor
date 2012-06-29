@@ -12,7 +12,7 @@
 #include <linux/netfilter_ipv4.h>
 #include <linux/init.h>
 #include <linux/in.h> 
-#include <linux/socket.h>  
+#include <linux/socket.h>
 #include <linux/inet.h> 
 #define NIPQUAD(addr) \
     ((unsigned char *)&addr)[0], \
@@ -20,7 +20,6 @@
     ((unsigned char *)&addr)[2], \
     ((unsigned char *)&addr)[3]
 #include <linux/inet.h> 
-#include <linux/module.h>
 #include <linux/sched.h>
 #include <linux/dcache.h>
 #include <linux/fs.h>
@@ -30,8 +29,6 @@
 #include <asm/fcntl.h>
 #include <asm/processor.h>
 #include <asm/uaccess.h>
-#include<linux/kernel.h>
-#include<linux/init.h>
 #include<linux/types.h>
 #include<linux/fs.h>
 #include <linux/slab.h>
@@ -58,25 +55,25 @@ static struct nf_hook_ops nfho;
 static char *deny_ip = "\x7f\x00\x00\x01";
 
 int chuli(char *tmp){
-printk("!!!!!!!!!!!!!!!!%s",tmp);
-//char *tmp =&buff[0];
-int i = 0,j = 0;
-while(tmp[0] != '\0'){
-printk("@@@@@@@");
-j = 0;
-//sscanf(tmp, "%[^'\n']", list[i]); 
-while(tmp[j]!='\n'){
-list[i][j]=tmp[j];
-j++;
-//printf("%c@",tmp[j]);
-}
-//list[i][strlen(list[i])] = '\0';
-tmp = strstr(tmp,"\n");
-tmp++;
-printk("%s",list[i++]);
-}
-//fflush(stdout);
-return i;
+    printk("!!!!!!!!!!!!!!!!%s",tmp);
+    //char *tmp =&buff[0];
+    int i = 0,j = 0;
+    while(tmp[0] != '\0'){
+        printk("@@@@@@@");
+        j = 0;
+        //sscanf(tmp, "%[^'\n']", list[i]);
+        while(tmp[j]!='\n'){
+            list[i][j]=tmp[j];
+            j++;
+            //printf("%c@",tmp[j]);
+        }
+        //list[i][strlen(list[i])] = '\0';
+        tmp = strstr(tmp,"\n");
+        tmp++;
+        printk("%s",list[i++]);
+    }
+    //fflush(stdout);
+    return i;
 }
 
 int write(char *buff){
@@ -104,17 +101,17 @@ int read(){
         filp->f_op->read(filp,read_buf,size,&filp->f_pos);  //写文件
         //vfs_write(filp,buff,strlen(buff),&filp->f_pos);
         read_buf[size] = '\0';
-int jj = chuli(read_buf);
-count = jj;
-printk("TTTTTTTTTT%s",list[0]);
-int i = 0;
+        int jj = chuli(read_buf);
+        count = jj;
+        printk("TTTTTTTTTT%s",list[0]);
+        int i = 0;
 
         set_fs(old_fs);
         //printk("!!!%d",(int)size);
-int m = 0;
-for(m = 0;m<jj;m++){
-ip_list[m] = in_aton(list[m]);
-}
+        int m = 0;
+        for(m = 0;m<jj;m++){
+            ip_list[m] = in_aton(list[m]);
+        }
         ip = in_aton(list[0]);
         filp_close(filp,NULL);
     }
@@ -129,27 +126,35 @@ unsigned int hook_func(unsigned int hooknum,
 {
     //printk("###%s",read_buf);
     int i;
-struct timex  txc;
-struct rtc_time tm;
-do_gettimeofday(&(txc.time));
-rtc_time_to_tm(txc.time.tv_sec,&tm);
-//printk("UTC time :%d-%d-%d %d:%d:%d \n",tm.tm_year+1900,tm.tm_mon, tm.tm_mday,tm.tm_hour,tm.tm_min,tm.tm_sec);
-// struct sk_buff *a = *skb;
-for(i = 0;i<count;i++)
-//printk("COUNT:%d",count);
-    if (ip_hdr(skb)->saddr == ip_list[i]) {
-        sprintf(tmp,"Dropped packet from... %s\tUTC time :%d-%d-%d %d:%d:%d \n",list[i],tm.tm_year+1900,tm.tm_mon+1, tm.tm_mday,tm.tm_hour,tm.tm_min,tm.tm_sec);
-        strcat(store,tmp);
-        tmp[0] = '\n';
-        //        printk("Dropped packet from... %d.%d.%d.%d/n",*drop_ip, *(drop_ip + 1),*(drop_ip + 2), *(drop_ip + 3));
-        return NF_DROP;
-    }
-//      sprintf(tmp,"Receive packet from... %s\tUTC time :%d-%d-%d %d:%d:%d \n",NIPQUAD(ip_hdr(*skb)->saddr),tm.tm_year+1900,tm.tm_mon+1, tm.tm_mday,tm.tm_hour,tm.tm_min,tm.tm_sec);
-sprintf(tmp,"Receive packet from... %s\tUTC time :%d-%d-%d %d:%d:%d \n","@@@@@@@@@@@@",tm.tm_year+1900,tm.tm_mon+1, tm.tm_mday,tm.tm_hour,tm.tm_min,tm.tm_sec);
-//printk("%s",(char *)(ip_hdr(a)->saddr));
-        strcat(store,tmp);
-        tmp[0] = '\n';
-  return NF_ACCEPT;
+    struct timex  txc;
+    struct rtc_time tm;
+    //struct sk_buff *sb = *skb;
+//if(!skb)
+//return NF_ACCEPT;
+    do_gettimeofday(&(txc.time));
+    rtc_time_to_tm(txc.time.tv_sec,&tm);
+    //printk("UTC time :%d-%d-%d %d:%d:%d \n",tm.tm_year+1900,tm.tm_mon, tm.tm_mday,tm.tm_hour,tm.tm_min,tm.tm_sec);
+    // struct sk_buff *a = *skb;
+    for(i = 0;i<count;i++)
+        //printk("COUNT:%d",count);
+        if (ip_hdr(skb)->saddr == ip_list[i]) {
+            sprintf(tmp,"Dropped  packet from-> %s\tUTC time :%d-%d-%d %d:%d:%d \n",list[i],tm.tm_year+1900,tm.tm_mon+1, tm.tm_mday,tm.tm_hour,tm.tm_min,tm.tm_sec);
+            strcat(store,tmp);
+            tmp[0] = '\n';
+            //        printk("Dropped packet from... %d.%d.%d.%d/n",*drop_ip, *(drop_ip + 1),*(drop_ip + 2), *(drop_ip + 3));
+            return NF_DROP;
+        }
+    //      sprintf(tmp,"Receive packet from... %s\tUTC time :%d-%d-%d %d:%d:%d \n",NIPQUAD(ip_hdr(*skb)->saddr),tm.tm_year+1900,tm.tm_mon+1, tm.tm_mday,tm.tm_hour,tm.tm_min,tm.tm_sec);
+    //sprintf(tmp,"Receive packet from... %s\tUTC time :%d-%d-%d %d:%d:%d \n","@@@@@@@@@@@@",tm.tm_year+1900,tm.tm_mon+1, tm.tm_mday,tm.tm_hour,tm.tm_min,tm.tm_sec);
+    //    printk("RRRRR packet from... %d.%d.%d.%d/n",ip_hdr(sb)->saddr, ip_hdr(sb)->saddr + 1,ip_hdr(sb)->saddr + 2, ip_hdr(sb)->saddr + 3);
+    unsigned char ttt_ip[4];
+    *(unsigned int *)ttt_ip = ip_hdr(skb)->saddr;
+    printk("@#$$$$$$$$$$%d.%d.%d.%d\n",*ttt_ip, *(ttt_ip + 1),*(ttt_ip + 2), *(ttt_ip + 3));
+    //sprintf(tmp,"Receive packet from... %d.%d.%d.%d\tUTC time :%d-%d-%d %d:%d:%d \n",*ttt_ip, *(ttt_ip + 1),*(ttt_ip + 2), *(ttt_ip + 3),NIPQUAD(ip_hdr(*skb)->saddr),tm.tm_year+1900,tm.tm_mon+1, tm.tm_mday,tm.tm_hour,tm.tm_min,tm.tm_sec);
+    sprintf(tmp,"Received packet from-> %d.%d.%d.%d\t\tUTC time :%d-%d-%d %d:%d:%d\n",*ttt_ip, *(ttt_ip + 1),*(ttt_ip + 2), *(ttt_ip + 3),tm.tm_year+1900,tm.tm_mon+1, tm.tm_mday,tm.tm_hour,tm.tm_min,tm.tm_sec);
+    strcat(store,tmp);
+    tmp[0] = '\n';
+    return NF_ACCEPT;
     
 }
 
@@ -162,13 +167,13 @@ int init_module()
     nfho.pf       = PF_INET;
     nfho.priority = NF_IP_PRI_FIRST;   /* 先执行 */
     
-read();
+    read();
 
 
     store = (char *)kmalloc(65536,GFP_KERNEL);
     tmp = (char *)kmalloc(1000,GFP_KERNEL);
-memset(store,0,65536);
-memset(tmp,0,1000);
+    memset(store,0,65536);
+    memset(tmp,0,1000);
     nf_register_hook(&nfho);
 
     return 0;

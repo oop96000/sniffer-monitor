@@ -20,7 +20,6 @@ __attribute__((section("__versions"))) = {
 	{ 0x60d90935, "module_layout" },
 	{ 0xb435d865, "nf_unregister_hook" },
 	{ 0x6408b9d3, "nf_register_hook" },
-	{ 0xf0fdf6cb, "__stack_chk_fail" },
 	{ 0x50eedeb8, "printk" },
 	{ 0xb4390f9a, "mcount" },
 };
@@ -31,4 +30,4 @@ __attribute__((section(".modinfo"))) =
 "depends=";
 
 
-MODULE_INFO(srcversion, "9843760B9BD0FC4D4FDA8DB");
+MODULE_INFO(srcversion, "15BE5FB2CAD969A38877C32");

@@ -1,8 +1,8 @@
-cmd_/home/administrator/test/test/a.o := gcc -Wp,-MD,/home/administrator/test/test/.a.o.d  -nostdinc -isystem /usr/lib/i386-linux-gnu/gcc/i686-linux-gnu/4.5.2/include  -I/usr/src/linux-headers-2.6.38-13-generic/arch/x86/include -Iinclude  -include include/generated/autoconf.h -Iubuntu/include  -D__KERNEL__ -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -Werror-implicit-function-declaration -Wno-format-security -fno-delete-null-pointer-checks -O2 -m32 -msoft-float -mregparm=3 -freg-struct-return -mpreferred-stack-boundary=2 -march=i686 -mtune=generic -maccumulate-outgoing-args -Wa,-mtune=generic32 -ffreestanding -fstack-protector -DCONFIG_AS_CFI=1 -DCONFIG_AS_CFI_SIGNAL_FRAME=1 -DCONFIG_AS_CFI_SECTIONS=1 -pipe -Wno-sign-compare -fno-asynchronous-unwind-tables -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -Wframe-larger-than=1024 -fno-omit-frame-pointer -fno-optimize-sibling-calls -pg -Wdeclaration-after-statement -Wno-pointer-sign -fno-strict-overflow -fconserve-stack -DCC_HAVE_ASM_GOTO  -DMODULE  -D"KBUILD_STR(s)=\#s" -D"KBUILD_BASENAME=KBUILD_STR(a)"  -D"KBUILD_MODNAME=KBUILD_STR(a)" -c -o /home/administrator/test/test/.tmp_a.o /home/administrator/test/test/a.c
+cmd_/home/administrator/test/hook_alldrop/a.o := gcc -Wp,-MD,/home/administrator/test/hook_alldrop/.a.o.d  -nostdinc -isystem /usr/lib/i386-linux-gnu/gcc/i686-linux-gnu/4.5.2/include  -I/usr/src/linux-headers-2.6.38-13-generic/arch/x86/include -Iinclude  -include include/generated/autoconf.h -Iubuntu/include  -D__KERNEL__ -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -Werror-implicit-function-declaration -Wno-format-security -fno-delete-null-pointer-checks -O2 -m32 -msoft-float -mregparm=3 -freg-struct-return -mpreferred-stack-boundary=2 -march=i686 -mtune=generic -maccumulate-outgoing-args -Wa,-mtune=generic32 -ffreestanding -fstack-protector -DCONFIG_AS_CFI=1 -DCONFIG_AS_CFI_SIGNAL_FRAME=1 -DCONFIG_AS_CFI_SECTIONS=1 -pipe -Wno-sign-compare -fno-asynchronous-unwind-tables -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -Wframe-larger-than=1024 -fno-omit-frame-pointer -fno-optimize-sibling-calls -pg -Wdeclaration-after-statement -Wno-pointer-sign -fno-strict-overflow -fconserve-stack -DCC_HAVE_ASM_GOTO  -DMODULE  -D"KBUILD_STR(s)=\#s" -D"KBUILD_BASENAME=KBUILD_STR(a)"  -D"KBUILD_MODNAME=KBUILD_STR(a)" -c -o /home/administrator/test/hook_alldrop/.tmp_a.o /home/administrator/test/hook_alldrop/a.c
 
-source_/home/administrator/test/test/a.o := /home/administrator/test/test/a.c
+source_/home/administrator/test/hook_alldrop/a.o := /home/administrator/test/hook_alldrop/a.c
 
-deps_/home/administrator/test/test/a.o := \
+deps_/home/administrator/test/hook_alldrop/a.o := \
   include/linux/module.h \
     $(wildcard include/config/symbol/prefix.h) \
     $(wildcard include/config/sysfs.h) \
@@ -476,8 +476,13 @@ deps_/home/administrator/test/test/a.o := \
   include/asm-generic/module.h \
   include/trace/events/module.h \
   include/trace/define_trace.h \
-  include/linux/skbuff.h \
+  include/linux/netfilter.h \
+    $(wildcard include/config/netfilter.h) \
+    $(wildcard include/config/sysctl.h) \
+    $(wildcard include/config/netfilter/debug.h) \
+    $(wildcard include/config/nf/nat/needed.h) \
     $(wildcard include/config/nf/conntrack.h) \
+  include/linux/skbuff.h \
     $(wildcard include/config/bridge/netfilter.h) \
     $(wildcard include/config/nf/defrag/ipv4.h) \
     $(wildcard include/config/nf/defrag/ipv6.h) \
@@ -490,7 +495,6 @@ deps_/home/administrator/test/test/a.o := \
     $(wildcard include/config/network/phy/timestamping.h) \
   include/linux/kmemcheck.h \
   include/linux/net.h \
-    $(wildcard include/config/sysctl.h) \
   include/linux/socket.h \
   /usr/src/linux-headers-2.6.38-13-generic/arch/x86/include/asm/socket.h \
   include/asm-generic/socket.h \
@@ -596,11 +600,6 @@ deps_/home/administrator/test/test/a.o := \
   include/linux/hrtimer.h \
     $(wildcard include/config/high/res/timers.h) \
   include/linux/timerqueue.h \
-  include/linux/ip.h \
-  include/linux/netfilter.h \
-    $(wildcard include/config/netfilter.h) \
-    $(wildcard include/config/netfilter/debug.h) \
-    $(wildcard include/config/nf/nat/needed.h) \
   include/linux/if.h \
   include/linux/hdlc/ioctl.h \
   include/linux/in.h \
@@ -648,113 +647,7 @@ deps_/home/administrator/test/test/a.o := \
   include/linux/inet.h \
   include/linux/magic.h \
   include/linux/netfilter_ipv4.h \
-  include/linux/sched.h \
-    $(wildcard include/config/sched/debug.h) \
-    $(wildcard include/config/lockup/detector.h) \
-    $(wildcard include/config/detect/hung/task.h) \
-    $(wildcard include/config/core/dump/default/elf/headers.h) \
-    $(wildcard include/config/sched/autogroup.h) \
-    $(wildcard include/config/virt/cpu/accounting.h) \
-    $(wildcard include/config/bsd/process/acct.h) \
-    $(wildcard include/config/taskstats.h) \
-    $(wildcard include/config/audit.h) \
-    $(wildcard include/config/inotify/user.h) \
-    $(wildcard include/config/fanotify.h) \
-    $(wildcard include/config/posix/mqueue.h) \
-    $(wildcard include/config/keys.h) \
-    $(wildcard include/config/perf/events.h) \
-    $(wildcard include/config/schedstats.h) \
-    $(wildcard include/config/task/delay/acct.h) \
-    $(wildcard include/config/fair/group/sched.h) \
-    $(wildcard include/config/rt/group/sched.h) \
-    $(wildcard include/config/blk/dev/io/trace.h) \
-    $(wildcard include/config/rcu/boost.h) \
-    $(wildcard include/config/compat/brk.h) \
-    $(wildcard include/config/sysvipc.h) \
-    $(wildcard include/config/rt/mutexes.h) \
-    $(wildcard include/config/task/xacct.h) \
-    $(wildcard include/config/cpusets.h) \
-    $(wildcard include/config/cgroups.h) \
-    $(wildcard include/config/futex.h) \
-    $(wildcard include/config/fault/injection.h) \
-    $(wildcard include/config/latencytop.h) \
-    $(wildcard include/config/function/graph/tracer.h) \
-    $(wildcard include/config/have/hw/breakpoint.h) \
-    $(wildcard include/config/have/unstable/sched/clock.h) \
-    $(wildcard include/config/irq/time/accounting.h) \
-    $(wildcard include/config/cgroup/sched.h) \
-  /usr/src/linux-headers-2.6.38-13-generic/arch/x86/include/asm/cputime.h \
-  include/asm-generic/cputime.h \
-  include/linux/sem.h \
-  include/linux/ipc.h \
-  /usr/src/linux-headers-2.6.38-13-generic/arch/x86/include/asm/ipcbuf.h \
-  include/asm-generic/ipcbuf.h \
-  /usr/src/linux-headers-2.6.38-13-generic/arch/x86/include/asm/sembuf.h \
-  include/linux/signal.h \
-  /usr/src/linux-headers-2.6.38-13-generic/arch/x86/include/asm/signal.h \
-  include/asm-generic/signal-defs.h \
-  /usr/src/linux-headers-2.6.38-13-generic/arch/x86/include/asm/siginfo.h \
-  include/asm-generic/siginfo.h \
-  include/linux/proportions.h \
-  include/linux/seccomp.h \
-    $(wildcard include/config/seccomp.h) \
-  /usr/src/linux-headers-2.6.38-13-generic/arch/x86/include/asm/seccomp.h \
-  /usr/src/linux-headers-2.6.38-13-generic/arch/x86/include/asm/seccomp_32.h \
-  include/linux/unistd.h \
-  /usr/src/linux-headers-2.6.38-13-generic/arch/x86/include/asm/unistd.h \
-  /usr/src/linux-headers-2.6.38-13-generic/arch/x86/include/asm/unistd_32.h \
-  include/linux/rtmutex.h \
-    $(wildcard include/config/debug/rt/mutexes.h) \
-  include/linux/plist.h \
-    $(wildcard include/config/debug/pi/list.h) \
-  include/linux/resource.h \
-  /usr/src/linux-headers-2.6.38-13-generic/arch/x86/include/asm/resource.h \
-  include/asm-generic/resource.h \
-  include/linux/task_io_accounting.h \
-    $(wildcard include/config/task/io/accounting.h) \
-  include/linux/latencytop.h \
-  include/linux/cred.h \
-    $(wildcard include/config/debug/credentials.h) \
-  include/linux/key.h \
-  include/linux/selinux.h \
-    $(wildcard include/config/security/selinux.h) \
-  include/linux/aio.h \
-  include/linux/aio_abi.h \
-  include/linux/rtc.h \
-    $(wildcard include/config/rtc/intf/dev/uie/emul.h) \
-    $(wildcard include/config/rtc/hctosys.h) \
-  include/linux/interrupt.h \
-    $(wildcard include/config/generic/irq/probe.h) \
-  include/linux/irqreturn.h \
-  include/linux/hardirq.h \
-    $(wildcard include/config/bkl.h) \
-  include/linux/ftrace_irq.h \
-    $(wildcard include/config/ftrace/nmi/enter.h) \
-  /usr/src/linux-headers-2.6.38-13-generic/arch/x86/include/asm/hardirq.h \
-    $(wildcard include/config/x86/thermal/vector.h) \
-    $(wildcard include/config/x86/mce/threshold.h) \
-  include/linux/irq.h \
-    $(wildcard include/config/irq/per/cpu.h) \
-    $(wildcard include/config/generic/hardirqs/no/deprecated.h) \
-    $(wildcard include/config/irq/release/method.h) \
-    $(wildcard include/config/generic/pending/irq.h) \
-  /usr/src/linux-headers-2.6.38-13-generic/arch/x86/include/asm/irq.h \
-  /usr/src/linux-headers-2.6.38-13-generic/arch/x86/include/asm/irq_regs.h \
-  include/linux/irqdesc.h \
-  /usr/src/linux-headers-2.6.38-13-generic/arch/x86/include/asm/hw_irq.h \
-    $(wildcard include/config/intr/remap.h) \
-  include/linux/profile.h \
-    $(wildcard include/config/profiling.h) \
-  /usr/src/linux-headers-2.6.38-13-generic/arch/x86/include/asm/sections.h \
-    $(wildcard include/config/debug/rodata.h) \
-  include/asm-generic/sections.h \
-  include/trace/events/irq.h \
-  include/linux/seq_file.h \
-  include/linux/cdev.h \
-  include/linux/poll.h \
-  /usr/src/linux-headers-2.6.38-13-generic/arch/x86/include/asm/poll.h \
-  include/asm-generic/poll.h \
 
-/home/administrator/test/test/a.o: $(deps_/home/administrator/test/test/a.o)
+/home/administrator/test/hook_alldrop/a.o: $(deps_/home/administrator/test/hook_alldrop/a.o)
 
-$(deps_/home/administrator/test/test/a.o):
+$(deps_/home/administrator/test/hook_alldrop/a.o):

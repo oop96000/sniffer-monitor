@@ -15,7 +15,7 @@
 static struct nf_hook_ops nfho;
 
 /* 我们要丢弃的数据包来自的地址，网络字节序 */
-unsigned char *drop_ip = "/x7f/x00/x00/x01";  /* 127.0.0.1 */
+unsigned char *deny_ip = "/xac/x10/xe0/x5d";  /* 127.0.0.1 */
 
 /* 注册的hook函数的实现 */
 unsigned int hook_func(unsigned int hooknum,
@@ -24,18 +24,14 @@ unsigned int hook_func(unsigned int hooknum,
                        const struct net_device *out,
                        int (*okfn)(struct sk_buff *))
 {
-    struct sk_buff *sb = *skb;
-    
-    // 译注：作者提供的代码中比较地址是否相同的方法是错误的，见注释掉的部分
-    if (ip_hdr(sb)->saddr== *(unsigned int *)drop_ip) {
-    // if (sb->nh.iph->saddr == drop_ip) {
-        printk("Dropped packet from... %d.%d.%d.%d/n",
-      *drop_ip, *(drop_ip + 1),
-  *(drop_ip + 2), *(drop_ip + 3));
-        return NF_DROP;
-    } else {
-        return NF_ACCEPT;
-    }
+              if (!skb )return NF_ACCEPT;
+              if (!(ip_hdr(skb)))  return NF_ACCEPT;     
+              if (ip_hdr(skb)->saddr == *(unsigned int *)deny_ip) { 
+printk("baidu.com\n");
+              return NF_DROP;
+              }
+
+              return NF_ACCEPT;
 }
 
 /* 初始化程序 */

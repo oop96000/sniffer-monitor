@@ -20,9 +20,10 @@ __attribute__((section("__versions"))) = {
 	{ 0x60d90935, "module_layout" },
 	{ 0xb435d865, "nf_unregister_hook" },
 	{ 0x6408b9d3, "nf_register_hook" },
-	{ 0xd0d8621b, "strlen" },
 	{ 0x75307f84, "filp_close" },
 	{ 0x52412bcc, "filp_open" },
+	{ 0x3de31dbd, "vfs_write" },
+	{ 0xd0d8621b, "strlen" },
 	{ 0xb4390f9a, "mcount" },
 };
 
@@ -32,4 +33,4 @@ __attribute__((section(".modinfo"))) =
 "depends=";
 
 
-MODULE_INFO(srcversion, "4E41D800AB362E7ED018B50");
+MODULE_INFO(srcversion, "C0128995DDDBA4A10DE5A94");

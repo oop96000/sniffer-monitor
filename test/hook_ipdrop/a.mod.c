@@ -30,6 +30,7 @@ __attribute__((section("__versions"))) = {
 	{ 0xd0d8621b, "strlen" },
 	{ 0x52412bcc, "filp_open" },
 	{ 0x1e6d26a8, "strstr" },
+	{ 0xf0fdf6cb, "__stack_chk_fail" },
 	{ 0x50eedeb8, "printk" },
 	{ 0x61651be, "strcat" },
 	{ 0x3c2c5af5, "sprintf" },
@@ -44,4 +45,4 @@ __attribute__((section(".modinfo"))) =
 "depends=";
 
 
-MODULE_INFO(srcversion, "60CA4BEF85DB2E0900053BB");
+MODULE_INFO(srcversion, "B0EF73E10F2BF8A734E5DB0");
